@@ -23,7 +23,7 @@ const EditPost = ({data}) => {
         
         await supabase
         .from('Posts')
-        .update({ title: post.title, author: post.author,  description: post.description})
+        .update({ title: post.title, content: post.content, image_url: post.image_url,})
         .eq('id', id);
         
         window.location = "/";
@@ -33,7 +33,7 @@ const EditPost = ({data}) => {
         event.preventDefault();
     
         await supabase
-        .from('Posts')
+        .from('hub')
         .delete()
         .eq('id', id); 
     
@@ -44,16 +44,15 @@ const EditPost = ({data}) => {
         <div>
             <form>
                 <label for="title">Title</label> <br />
-                <input type="text" id="title" name="title" value={post.title} onChange={handleChange} /><br />
+                <input type="text" id="title" name="title" onChange={handleChange} /><br />
                 <br/>
 
-                <label for="author">Author</label><br />
-                <input type="text" id="author" name="author" value={post.author} onChange={handleChange} /><br />
+                <label for="content">Content</label><br />
+                <input type="text" id="content" name="content" onChange={handleChange}/><br />
                 <br/>
 
-                <label for="description">Description</label><br />
-                <textarea rows="5" cols="50" id="description" name="description" value={post.description} onChange={handleChange} >
-                </textarea>
+                <label for="image_url">Image</label><br />
+                <input type="text" id="image_url" name="image_url" onChange={handleChange}/><br />
                 <br/>
 
                 <input type="submit" value="Submit" onClick={updatePost}/>

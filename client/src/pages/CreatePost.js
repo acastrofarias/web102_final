@@ -3,7 +3,7 @@ import './CreatePost.css';
 import { supabase } from '../client.js';
 
 const CreatePost = () => {
-    const [post, setPost] = useState({ title: "", author: "", description: ""});
+    const [post, setPost] = useState({ title: "", content: "", image_url: ""});
     console.log('post: ', post);
 
     const handleChange = (event) => {
@@ -21,10 +21,10 @@ const CreatePost = () => {
         event.preventDefault();
 
         const { data, error } = await 
-        supabase.from("Posts").insert({
+        supabase.from("hub").insert({
             title: post.title,
-            author: post.author,
-            description: post.description,
+            content: post.content,
+            image_url: post.image_url,
         })
         .select();
         console.log(data);
@@ -39,13 +39,12 @@ const CreatePost = () => {
                 <input type="text" id="title" name="title" onChange={handleChange} /><br />
                 <br/>
 
-                <label for="author">Author</label><br />
-                <input type="text" id="author" name="author" onChange={handleChange}/><br />
+                <label for="content">Content</label><br />
+                <input type="text" id="content" name="content" onChange={handleChange}/><br />
                 <br/>
 
-                <label for="description">Description</label><br />
-                <textarea rows="5" cols="50" id="description" name="description" onChange={handleChange}>
-                </textarea>
+                <label for="image_url">Image</label><br />
+                <input type="text" id="image_url" name="image_url" onChange={handleChange}/><br />
                 <br/>
                 <input type="submit" value="Submit" onClick={createPost}/>
             </form>

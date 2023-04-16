@@ -16,13 +16,7 @@
     font-size: 24px;
 }
 
-.author {
-    color:white;
-    margin-bottom: 20px;
-    font-size: 20px;
-}
-
-.description {
+.content {
     color:white;  
     text-align: justify;
     text-justify: inter-word;

@@ -17,7 +17,7 @@ const App = () => {
 
   const fetchPosts = async () => {
     const {data} = await supabase
-    .from('Posts')
+    .from('hub')
     .select()
     .order('created_at', { ascending: true })
     // set state of posts
@@ -45,9 +45,9 @@ const App = () => {
     <div className="App">
 
       <div className="header">
-        <h1>👍 Bet 1.0</h1>
-        <Link to="/"><button className="headerBtn"> Explore Challenges 🔍  </button></Link>
-        <Link to="/new"><button className="headerBtn"> Submit Challenge 🏆 </button></Link>
+        <h1>TTRPG Hub</h1>
+        <Link to="/"><button className="headerBtn"> Home </button></Link>
+        <Link to="/new"><button className="headerBtn"> Post </button></Link>
       </div>
         {element}
     </div>
