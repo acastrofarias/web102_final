@@ -26,10 +26,8 @@
 }
 
 .ReadPosts {
-  display: grid;
-  grid-auto-flow: row;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
+  display: block;
+  width:100%;
 }
 
 button {
@@ -47,3 +45,6 @@ button {
 button:hover {
   border-color: #646cff;
 }
+
+p{
+  font-size: 15px;}

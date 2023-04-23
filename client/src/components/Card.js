@@ -3,7 +3,7 @@ import { useState } from 'react'
 import './Card.css'
 import more from './more.png'
 import { Link } from 'react-router-dom'
-
+import Posted from './Posted'
 
 const Card = (props) =>  {
 
@@ -14,11 +14,13 @@ const Card = (props) =>  {
 
   return (
       <div className="Card">
+          <Posted created_at={props.created_at} />
           <Link to={'edit/'+ props.id}><img className="moreButton" alt="edit button" src={more} /></Link>
           <h2 className="title">{props.title}</h2>
           <p className="content">{props.content}</p>
           <img className="image_url" src={props.image_url} />
           <br></br>
+          <p>Upvotes: {props.upvotes}</p>
           <button className="betButton" onClick={updateCount} >👍 Upvote: {count}</button>
       </div>
   );
