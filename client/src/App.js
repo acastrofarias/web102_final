@@ -1,11 +1,13 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
 import { useRoutes } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { supabase } from './client.js'
 import ReadPosts from './pages/ReadPosts'
 import CreatePost from './pages/CreatePost'
 import EditPost from './pages/EditPost'
-import { Link } from 'react-router-dom'
-import { supabase } from './client.js'
+import DetailView from './pages/DetailView'
+
 
 
 const App = () => {
@@ -37,6 +39,10 @@ const App = () => {
     {
       path:"/new",
       element: <CreatePost />
+    },
+    {
+      path:"/details/:id",
+      element: <DetailView data={posts} />
     }
   ]);
 
