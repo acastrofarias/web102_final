@@ -43,16 +43,13 @@ const EditPost = ({data}) => {
     return (
         <div>
             <form>
-                <label for="title">Title</label> <br />
-                <input type="text" id="title" name="title" onChange={handleChange} /><br />
+                <input type="text" placeholder="Title" id="title" name="title" onChange={handleChange} /><br />
                 <br/>
 
-                <label for="content">Content</label><br />
-                <input type="text" id="content" name="content" onChange={handleChange}/><br />
+                <input type="text" placeholder="Content" id="content" name="content" onChange={handleChange}/><br />
                 <br/>
 
-                <label for="image_url">Image</label><br />
-                <input type="text" id="image_url" name="image_url" onChange={handleChange}/><br />
+                <input type="text" placeholder="Image URL" id="image_url" name="image_url" onChange={handleChange}/><br />
                 <br/>
 
                 <input type="submit" value="Edit Post" onClick={updatePost}/>
