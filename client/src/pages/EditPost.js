@@ -55,8 +55,8 @@ const EditPost = ({data}) => {
                 <input type="text" id="image_url" name="image_url" onChange={handleChange}/><br />
                 <br/>
 
-                <input type="submit" value="Submit" onClick={updatePost}/>
-                <button className="deleteButton" onClick={deletePost}>Delete</button>
+                <input type="submit" value="Edit Post" onClick={updatePost}/>
+                <button className="deleteButton" onClick={deletePost}>Delete Post</button>
             </form>
         </div>
     )
