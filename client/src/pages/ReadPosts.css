@@ -1,11 +1,21 @@
 .ReadPosts {
-    display: grid;
-    grid-auto-flow: row;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    display: block;
+    margin: 0 auto;
 }
 
-.searchBar{
-    width: 1200px;
-    max-width: 100%;
-}
+input {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100px;
+    margin-bottom: 25px;
+    height: 45px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    font-size: 20px;
+    padding-left: 10px;
+  }
+
+  .searchBar{
+    width:500px;
+    margin: 0 auto;
+  }

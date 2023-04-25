@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../client.js';
 import Card from '../components/Card';
+import './ReadPosts.css';
 
 
 const ReadPosts = (props) => {
@@ -33,11 +34,14 @@ const ReadPosts = (props) => {
 
     return (
         <div className="ReadPosts">
-            <input className='searchBar'
-              type="text"
-              placeholder="Search..."
-              onChange={(inputString) => setSearchInput(inputString.target.value)}
-            />
+            <div className='searchBar'> 
+                <input
+                  type="text"
+                  placeholder="Search..."
+                  onChange={(inputString) => setSearchInput(inputString.target.value)}
+                />
+            </div>
+            <br></br>
 
             {
                 posts && posts.length > 0 ?
