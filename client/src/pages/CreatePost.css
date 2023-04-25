@@ -8,10 +8,6 @@ input {
     padding-left: 10px;
 }
 
-label {
-    font-size: 20px;
-}
-
 textarea {
     border-radius: 8px;
     width: 100%;

@@ -12,6 +12,7 @@ import DetailView from './pages/DetailView'
 
 const App = () => {
   const [posts, setPosts] = useState([]);
+  const [searchInput, setSearchInput] = useState("");
 
   useEffect(() => {
     fetchPosts();
@@ -21,9 +22,26 @@ const App = () => {
     const {data} = await supabase
     .from('hub')
     .select()
-    .order('created_at', { ascending: true })
     // set state of posts
     setPosts(data);
+  }
+
+  useEffect(() => {
+    searchPosts(searchInput).catch(console.error);
+  }, [searchInput]);
+
+  const searchPosts = async (searchInput) => {
+      if (searchInput !== ""){
+          const { data, error } = await supabase
+              .from("hub")
+              .select()
+              .textSearch('title', searchInput)
+              .order("created_at", { ascending: true });
+              setPosts(data);
+      }
+      else{
+          fetchPosts();
+      }
   }
 
   // Sets up routes
@@ -51,9 +69,21 @@ const App = () => {
     <div className="App">
 
       <div className="header">
-        <h1>TTRPG Hub</h1>
-        <Link to="/"><button className="headerBtn"> Home </button></Link>
-        <Link to="/new"><button className="headerBtn"> Post </button></Link>
+        <h2>TTRPG Hub</h2>
+
+        <div className='searchBar'> 
+          <input
+            type="text"
+            placeholder="Search..."
+            onChange={(inputString) => setSearchInput(inputString.target.value)}
+          />
+        </div>
+
+        <div>
+          <Link to="/"><button className="headerBtn"> Home </button></Link>
+          <Link to="/new"><button className="headerBtn"> Post </button></Link>
+        </div>
+        
       </div>
         {element}
     </div>

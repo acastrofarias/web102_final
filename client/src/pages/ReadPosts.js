@@ -7,41 +7,42 @@ import './ReadPosts.css';
 const ReadPosts = (props) => {
 
     const [posts, setPosts] = useState([]);
-    const [searchInput, setSearchInput] = useState("");
+    
 
     useEffect(() => {
         setPosts(props.data);
     }, [props]);
 
-    useEffect(() => {
-        searchPosts(searchInput).catch(console.error);
-      }, [searchInput]);
+    
 
-    const searchPosts = async (searchInput) => {
-        if (searchInput !== ""){
-            const { data, error } = await supabase
-                .from("hub")
-                .select()
-                .textSearch('title', searchInput)
-                .order("created_at", { ascending: true });
-                setPosts(data);
-        }
-        else{
-            setPosts(props.data);
-        }
-        
-    }
+    const newestPosts = async () => {
+        const {data} = await supabase
+        .from('hub')
+        .select()
+        .order('created_at', { ascending: true })
+        // set state of posts
+        setPosts(data);
+      }
+    
+      const upvotePosts = async () => {
+        const {data} = await supabase
+        .from('hub')
+        .select()
+        .order('upvotes', { ascending: false })
+        // set state of posts
+        setPosts(data);
+      }
 
     return (
         <div className="ReadPosts">
-            <div className='searchBar'> 
-                <input
-                  type="text"
-                  placeholder="Search..."
-                  onChange={(inputString) => setSearchInput(inputString.target.value)}
-                />
+            <div className='header2'>
+              <p>
+                Order by: &nbsp;
+                <button className="headerBtn" onClick={upvotePosts}> Most Popular </button>
+                <button className="headerBtn" onClick={newestPosts}> Newest </button>
+              </p>
             </div>
-            <br></br>
+
 
             {
                 posts && posts.length > 0 ?

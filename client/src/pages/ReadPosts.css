@@ -1,6 +1,8 @@
 .ReadPosts {
     display: block;
     margin: 0 auto;
+    width: 1200px;
+    max-width: 90%;
 }
 
 input {
@@ -15,7 +17,9 @@ input {
     padding-left: 10px;
   }
 
-  .searchBar{
-    width:500px;
-    margin: 0 auto;
+  .header2{
+    width: 1200px;
+    max-width: 100%;
+    color:white;
+    display: block;
   }
