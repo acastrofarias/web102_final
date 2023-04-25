@@ -10,15 +10,24 @@ const DetailView = ({data}) => {
   const {id} = useParams();    
   const [post, setPost] = useState(data.filter(item => item.id == id)[0]);
 
-  const [count, setCount] = useState(0)
-  const updateCount = () => {
+  const [count, setCount] = useState(post.upvotes)
+
+  const updateCount = async (event) => {
+    await supabase
+    .from('hub')
+    .update({ upvotes: count + 1})
+    .eq('id', id)
+
+    // Update State Variable
     setCount((count) => count + 1);
   }
+
+
 
   return(
     <div className='DetailView'>
         <Posted created_at={post.created_at} />
-        <Link to={'edit/'+ post.id}><img className="moreButton" alt="edit button" src={more} /></Link>
+        <Link to={'/'+ id + '/edit'}><img className="moreButton" alt="edit button" src={more} /></Link>
 
         <h2 className="title">{post.title}</h2> 
 

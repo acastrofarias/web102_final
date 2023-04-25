@@ -33,7 +33,7 @@ const App = () => {
       element:<ReadPosts data={posts}/>
     },
     {
-      path:"/details/:id/edit/:id",
+      path:"/:id/edit",
       element: <EditPost data={posts} />
     },
     {
@@ -41,7 +41,7 @@ const App = () => {
       element: <CreatePost />
     },
     {
-      path:"/details/:id",
+      path:"/:id",
       element: <DetailView data={posts}/>
     }
   ]);

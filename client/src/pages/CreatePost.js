@@ -46,7 +46,7 @@ const CreatePost = () => {
                 <label for="image_url">Image</label><br />
                 <input type="text" id="image_url" name="image_url" onChange={handleChange}/><br />
                 <br/>
-                <input type="submit" value="Submit" onClick={createPost}/>
+                <input type="submit" value="Create Post" onClick={createPost}/>
             </form>
         </div>
     )
