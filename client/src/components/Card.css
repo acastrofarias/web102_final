@@ -9,12 +9,12 @@
     margin-bottom: 25px;
     width: 1200px;
     max-width: 100%;
-    text-align: center;
+    text-align: left;
+    padding-left: 30px;
 }
 
 .title {
     color:white;
-    padding-left:30px;
     font-size: 24px;
 }
 
@@ -22,7 +22,6 @@
     color:white;  
     text-align: justify;
     text-justify: inter-word;
-    padding-left: 30px;
     padding-right: 30px;
     margin-bottom: 20px;
     font-size: 15px;
