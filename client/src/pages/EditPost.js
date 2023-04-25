@@ -22,7 +22,7 @@ const EditPost = ({data}) => {
         event.preventDefault();
         
         await supabase
-        .from('Posts')
+        .from('hub')
         .update({ title: post.title, content: post.content, image_url: post.image_url,})
         .eq('id', id);
         
