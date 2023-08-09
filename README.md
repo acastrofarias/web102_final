@@ -6,6 +6,8 @@ This web app: **A forum to talk about our favorite table top games!**
 
 Time spent: **9.5** hours spent in total
 
+Functional Site can be found here: https://relaxed-pixie-bd22e2.netlify.app/
+
 ## Required Features
 
 The following **required** functionality is completed:
