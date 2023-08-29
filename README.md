@@ -1,6 +1,6 @@
 # Web Development Final Project - *TTRPG Hub*
 
-Submitted by: **Adrian Castro**
+Submitted by: **Adrian Castro Farias**
 
 This web app: **A forum to talk about our favorite table top games!**
 
